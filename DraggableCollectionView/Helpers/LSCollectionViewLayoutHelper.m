@@ -123,6 +123,13 @@
         NSMutableArray *indexPathArray = [NSMutableArray array];
         
         for (UICollectionViewLayoutAttributes *layoutAttributes in elements) {
+            
+            if([layoutAttributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader]
+               || [layoutAttributes.representedElementKind isEqualToString:UICollectionElementKindSectionFooter])
+            {
+                continue;
+            }
+            
             [indexPathArray addObject:layoutAttributes.indexPath];
         }
         
